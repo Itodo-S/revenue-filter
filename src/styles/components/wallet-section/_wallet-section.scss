@@ -1,0 +1,19 @@
+.wallet-section {
+  @apply px-[140px] grid grid-cols-3 gap-[124px] mt-16;
+
+  &__chart {
+    @apply col-span-2;
+  }
+
+  &__balance {
+    @apply flex items-end gap-16;
+  }
+
+  &__balance-items {
+    @apply flex flex-col gap-8;
+
+    .balance-item {
+      @apply flex flex-col;
+    }
+  }
+}

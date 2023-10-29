@@ -7,5 +7,17 @@ import home from "./home.svg";
 import notification from "./notifications.svg";
 import chat from "./chat.svg";
 import menue from "./menu.svg";
+import info from "./info.svg";
 
-export { logo, app, group, payment, chart, home, notification, chat, menue };
+export {
+  logo,
+  app,
+  group,
+  payment,
+  chart,
+  home,
+  notification,
+  chat,
+  menue,
+  info,
+};
