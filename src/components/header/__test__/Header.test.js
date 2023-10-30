@@ -10,13 +10,13 @@ jest.mock("../../../assets/icons", () => ({
   group: "../../../assets/icons/group.svg",
   home: "../../../assets/icons/home.svg",
   logo: "../../../assets/icons/logo.svg",
-  menue: "../../../assets/icons/menu.svg",
+  menu: "../../../assets/icons/menu.svg",
   notification: "../../../assets/icons/notifications.svg",
   payment: "../../../assets/icons/payment.svg",
 }));
 
 describe("Header Component", () => {
-  test("renders header with navigation items", () => {
+  test("renders header with navigation items and profile icons", () => {
     render(<Header />);
 
     // Checking if the logo is present
@@ -29,16 +29,7 @@ describe("Header Component", () => {
     });
 
     // Checking alt attribute for profile icons
-    const profileIcons = [
-      "ICON",
-      "ICON",
-      "ICON",
-      "ICON",
-      "ICON",
-      "ICON",
-      "ICON",
-      "ICON",
-    ];
+    const profileIcons = ["ICON", "ICON", "ICON", "ICON", "ICON"];
     const profileIconElements = screen.getAllByAltText("ICON");
 
     // Assert that there are the correct number of profile icon elements
@@ -48,5 +39,8 @@ describe("Header Component", () => {
     profileIconElements.forEach((element) => {
       expect(element).toBeInTheDocument();
     });
+
+    // Checking if the profile menu button is present
+    expect(screen.getByAltText("ICON")).toBeInTheDocument();
   });
 });

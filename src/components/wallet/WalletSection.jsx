@@ -1,8 +1,12 @@
 import React from "react";
 import { info } from "../../assets/icons";
 import { line28, line29 } from "../../assets/images";
+import { useMainStack } from "../../context/MainStackContext";
 
 const WalletSection = () => {
+  const { wallet } = useMainStack();
+
+  console.log(wallet);
   return (
     <section className="wallet-section">
       <div className="wallet-section__chart">
@@ -12,7 +16,7 @@ const WalletSection = () => {
               Available Balance
             </p>
             <p className="font-bold text-3xl text-[#131316] leading-[48px] tracking-[-1.5px] mt-2">
-              USD 120,500.00
+              USD {wallet?.wallet?.balance}
             </p>
           </div>
 
@@ -40,7 +44,7 @@ const WalletSection = () => {
           </div>
 
           <p className="text-[28px] font-bold text-[#131316] mt-[10px]">
-            USD 0.00
+            USD {wallet?.wallet?.ledger_balance}
           </p>
         </div>
 
@@ -51,7 +55,7 @@ const WalletSection = () => {
           </div>
 
           <p className="text-[28px] font-bold text-[#131316] mt-[10px]">
-            USD 55,080.00
+            USD {wallet?.wallet?.total_payout}
           </p>
         </div>
 
@@ -62,7 +66,7 @@ const WalletSection = () => {
           </div>
 
           <p className="text-[28px] font-bold text-[#131316] mt-[10px]">
-            USD 175,580.00
+            USD {wallet?.wallet?.total_revenue}
           </p>
         </div>
 
@@ -73,7 +77,7 @@ const WalletSection = () => {
           </div>
 
           <p className="text-[28px] font-bold text-[#131316] mt-[10px]">
-            USD 0.00
+            USD {wallet?.wallet?.pending_payout}
           </p>
         </div>
       </div>

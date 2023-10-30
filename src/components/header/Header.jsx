@@ -50,10 +50,12 @@ const Header = () => {
   };
 
   // Extracting the first and last letters of the names
-  const firstNameInitial = user.first_name
-    ? user.first_name[0].toUpperCase()
+  const firstNameInitial = user?.user?.first_name
+    ? user?.user?.first_name[0].toUpperCase()
     : "";
-  const lastNameInitial = user.last_name ? user.last_name[0].toUpperCase() : "";
+  const lastNameInitial = user?.user?.last_name
+    ? user?.user?.last_name[0].toUpperCase()
+    : "";
 
   // Combines the fist and last name letters initial
   const userInitials = firstNameInitial + lastNameInitial;

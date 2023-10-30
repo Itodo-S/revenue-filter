@@ -12,15 +12,28 @@ import { useMainStack } from "../../context/MainStackContext";
 
 const ProfileMenu = () => {
   const { user } = useMainStack();
+
+  // Extracting the first and last letters of the names
+  const firstNameInitial = user?.user.first_name
+    ? user?.user.first_name[0].toUpperCase()
+    : "";
+  const lastNameInitial = user?.user?.last_name
+    ? user?.user?.last_name[0].toUpperCase()
+    : "";
+
+  // Combines the fist and last name letters initial
+  const userInitials = firstNameInitial + lastNameInitial;
   return (
     <div className="absolute w-[340px] shadow-lg top-24 right-9 bg-[#fff] p-3 rounded-2xl">
       <div className="flex gap-4 items-center">
-        <div className="name-short">SI</div>
+        <div className="name-short">{userInitials}</div>
         <div className="flex flex-col gap-1">
           <p className="font-bold text-[#131316]">
-            {user?.first_name + " " + user?.last_name}
+            {user?.user?.first_name + " " + user?.user?.last_name}
           </p>
-          <p className="font-medium text-xs text-[#56616B]">{user?.email}</p>
+          <p className="font-medium text-xs text-[#56616B]">
+            {user?.user?.email}
+          </p>
         </div>
       </div>
 
