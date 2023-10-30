@@ -1,3 +1,4 @@
+import AppBar from "./components/appBar/AppBar";
 import Header from "./components/header/Header";
 import WalletSection from "./components/wallet/WalletSection";
 
@@ -6,6 +7,7 @@ function App() {
     <div className="">
       <Header />
       <WalletSection />
+      <AppBar />
     </div>
   );
 }

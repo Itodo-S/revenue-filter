@@ -8,6 +8,10 @@ import notification from "./notifications.svg";
 import chat from "./chat.svg";
 import menue from "./menu.svg";
 import info from "./info.svg";
+import app_bar_list from "./app-bar-list.svg";
+import app_bar_list1 from "./app-bar-list1.svg";
+import product_icon from "./productIcons.svg";
+import product_icon1 from "./productIcons1.svg";
 
 export {
   logo,
@@ -20,4 +24,8 @@ export {
   chat,
   menue,
   info,
+  product_icon,
+  app_bar_list,
+  product_icon1,
+  app_bar_list1,
 };
