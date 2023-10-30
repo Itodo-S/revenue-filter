@@ -31,7 +31,7 @@
     }
 
     .profile-button {
-      @apply flex items-center rounded-full pl-[5px] pr-[12px] py-1 bg-[#EFF1F6] gap-2 cursor-pointer;
+      @apply flex items-center rounded-full pl-[5px] pr-[12px] py-1 bg-[#EFF1F6] gap-2 cursor-pointer hover:scale-105;
 
       .name-short {
         @apply rounded-full w-8 h-8 flex items-center justify-center text-[#FFFFFF] font-semibold text-sm bg-[#3f454c];

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   app,
   chart,
@@ -11,6 +11,7 @@ import {
   payment,
 } from "../../assets/icons";
 import { useMainStack } from "../../context/MainStackContext";
+import ProfileMenu from "./ProfileMenu";
 
 const navList = [
   {
@@ -42,6 +43,11 @@ const navList = [
 
 const Header = () => {
   const { user } = useMainStack();
+  const [show, setShow] = useState(false);
+
+  const toggleMenu = () => {
+    setShow(!show);
+  };
 
   // Extracting the first and last letters of the names
   const firstNameInitial = user.first_name
@@ -53,34 +59,38 @@ const Header = () => {
   const userInitials = firstNameInitial + lastNameInitial;
 
   return (
-    <header className="header">
-      <img className="ml-6 w-9 h-9" src={logo} alt="MAINSTACK LOGO" />
+    <>
+      <header className="header">
+        <img className="ml-6 w-9 h-9" src={logo} alt="MAINSTACK LOGO" />
 
-      <div className="header__nav">
-        {navList.map((item) => (
-          <div
-            key={item.id}
-            className={
-              item.name === "Revenue" ? "nav-active" : "header__nav-item"
-            }
-          >
-            <img src={item.icon} alt="ICON" />
-            {item.name}
-          </div>
-        ))}
-      </div>
-
-      <div className="header__profile">
-        <img src={notification} alt="ICON" />
-        <img src={chat} alt="ICON" />
-
-        <div className="profile-button">
-          <div className="name-short">{userInitials}</div>
-
-          <img src={menue} alt="ICON" />
+        <div className="header__nav">
+          {navList.map((item) => (
+            <div
+              key={item.id}
+              className={
+                item.name === "Revenue" ? "nav-active" : "header__nav-item"
+              }
+            >
+              <img src={item.icon} alt="ICON" />
+              {item.name}
+            </div>
+          ))}
         </div>
-      </div>
-    </header>
+
+        <div className="header__profile">
+          <img src={notification} alt="ICON" />
+          <img src={chat} alt="ICON" />
+
+          <div className="profile-button" onClick={toggleMenu}>
+            <div className="name-short">{userInitials}</div>
+
+            <img src={menue} alt="ICON" />
+          </div>
+        </div>
+      </header>
+
+      {show && <ProfileMenu />}
+    </>
   );
 };
 
