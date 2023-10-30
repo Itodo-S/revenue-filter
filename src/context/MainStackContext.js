@@ -1,11 +1,13 @@
 import React, { useContext, useReducer, createContext, useEffect } from "react";
 import { userReducer } from "../reducers/userReducer";
-import { fetchUser, fetchWallet } from "../apis/apis";
+import { fetchTransactions, fetchUser, fetchWallet } from "../apis/apis";
 import { walletReducer } from "../reducers/walletReducer";
+import { transactionsReducer } from "../reducers/transactionsReducer";
 
 const initialState = {
   user: {},
   wallet: {},
+  transactions: [],
   isLoading: false,
 };
 
@@ -16,6 +18,7 @@ export const MainStackProvider = ({ children }) => {
     (prevState, action) => ({
       user: userReducer(prevState.user, action),
       wallet: walletReducer(prevState.wallet, action),
+      transactions: transactionsReducer(prevState.transactions, action),
       isLoading: prevState.isLoading,
     }),
     initialState
@@ -31,6 +34,9 @@ export const MainStackProvider = ({ children }) => {
 
         const walletData = await fetchWallet();
         dispatch({ type: "FETCH_WALLET", payload: walletData });
+
+        const transactionsData = await fetchTransactions();
+        dispatch({ type: "FETCH_TRANSACTIONS", payload: transactionsData });
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -44,6 +50,7 @@ export const MainStackProvider = ({ children }) => {
   const value = {
     user: state.user,
     wallet: state.wallet,
+    transactions: state.transactions,
     isLoading: state.isLoading,
   };
 

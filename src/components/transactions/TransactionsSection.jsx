@@ -1,7 +1,23 @@
 import React from "react";
-import { call_received, download, expand_more } from "../../assets/icons";
+import {
+  call_made,
+  download,
+  expand_more,
+} from "../../assets/icons";
+import { useMainStack } from "../../context/MainStackContext";
 
 const TransactionsSection = () => {
+  const { transactions } = useMainStack();
+
+  // Helper function to format the date
+  const formatDate = (dateString) => {
+    const options = { month: "short", day: "2-digit", year: "numeric" };
+    const formattedDate = new Date(dateString).toLocaleDateString(
+      "en-US",
+      options
+    );
+    return formattedDate;
+  };
   return (
     <div className="transactions">
       <div className="transactions__header">
@@ -26,22 +42,30 @@ const TransactionsSection = () => {
       </div>
 
       <div className="transactions__body">
-        <div className="body-item">
-          <div className="flex items-center gap-[14px]">
-            <div className="icon-in">
-              <img src={call_received} alt="ICON" />
+        {transactions?.transactions?.map((item) => (
+          <div className="body-item">
+            <div className="flex items-center gap-[14px]">
+              <div className="icon-in">
+                <img src={call_made} alt="ICON" />
+              </div>
+              <div className="flex flex-col gap-[9px]">
+                <p className="text-[#131316] capitalize font-medium">
+                  {item?.type}{" "}
+                </p>
+                <p className="text-[#0EA163] text-sm font-medium">
+                  {item?.status}
+                </p>
+              </div>
             </div>
-            <div className="flex flex-col gap-[9px]">
-              <p className="text-[#131316] font-medium">Psychology of Money </p>
-              <p className="text-[#56616B] font-medium">Roy Cash</p>
-            </div>
-          </div>
 
-          <div className="text-right flex flex-col gap-1">
-            <p className="text-[#131316] font-bold">USD 600</p>
-            <p className="text-sm text-[#56616B] font-medium">Apr 03,2022</p>
+            <div className="text-right flex flex-col gap-1">
+              <p className="text-[#131316] font-bold">USD {item?.amount}</p>
+              <p className="text-sm text-[#56616B] font-medium">
+                {formatDate(item?.date)}
+              </p>
+            </div>
           </div>
-        </div>
+        ))}
       </div>
     </div>
   );

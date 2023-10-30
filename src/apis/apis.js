@@ -27,3 +27,17 @@ export const fetchWallet = async () => {
     return [];
   }
 };
+
+export const fetchTransactions = async () => {
+  try {
+    const response = await fetch(`${BASE_URL}/transactions`);
+    if (!response.ok) {
+      throw new Error(`Failed to fetch transactions: ${response.statusText}`);
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching transactions:", error);
+    return [];
+  }
+};
