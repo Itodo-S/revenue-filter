@@ -6,11 +6,14 @@ import reportWebVitals from "./reportWebVitals";
 // STYLES
 import "./index.scss";
 import "./styles/global.scss";
+import { MainStackProvider } from "./context/MainStackContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <MainStackProvider>
+      <App />
+    </MainStackProvider>
   </React.StrictMode>
 );
 

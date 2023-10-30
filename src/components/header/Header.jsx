@@ -10,6 +10,7 @@ import {
   notification,
   payment,
 } from "../../assets/icons";
+import { useMainStack } from "../../context/MainStackContext";
 
 const navList = [
   {
@@ -40,6 +41,17 @@ const navList = [
 ];
 
 const Header = () => {
+  const { user } = useMainStack();
+
+  // Extracting the first and last letters of the names
+  const firstNameInitial = user.first_name
+    ? user.first_name[0].toUpperCase()
+    : "";
+  const lastNameInitial = user.last_name ? user.last_name[0].toUpperCase() : "";
+
+  // Combines the fist and last name letters initial
+  const userInitials = firstNameInitial + lastNameInitial;
+
   return (
     <header className="header">
       <img className="ml-6 w-9 h-9" src={logo} alt="MAINSTACK LOGO" />
@@ -63,7 +75,7 @@ const Header = () => {
         <img src={chat} alt="ICON" />
 
         <div className="profile-button">
-          <div className="name-short">IS</div>
+          <div className="name-short">{userInitials}</div>
 
           <img src={menue} alt="ICON" />
         </div>
