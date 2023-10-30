@@ -1,0 +1,23 @@
+.transactions {
+  @apply mt-[82px] px-[140px];
+
+  &__header {
+    @apply flex justify-between items-center border-b border-b-[#EFF1F6] pb-6;
+  }
+
+  &__body {
+    @apply mt-[33px] flex flex-col gap-6 mb-4;
+
+    .body-item {
+      @apply flex justify-between items-center;
+    }
+  }
+}
+
+.transactions-button {
+  @apply pl-[30px] pr-5 py-3 flex justify-center items-center bg-[#EFF1F6] rounded-full cursor-pointer gap-1;
+}
+
+.icon-in {
+  @apply w-12 h-12 rounded-full flex items-center justify-center bg-[#E3FCF2];
+}

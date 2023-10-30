@@ -12,6 +12,10 @@ import app_bar_list from "./app-bar-list.svg";
 import app_bar_list1 from "./app-bar-list1.svg";
 import product_icon from "./productIcons.svg";
 import product_icon1 from "./productIcons1.svg";
+import download from "./download.svg";
+import expand_more from "./expand_more.svg";
+import call_made from "./call_made.svg";
+import call_received from "./call_received.svg";
 
 export {
   logo,
@@ -28,4 +32,8 @@ export {
   app_bar_list,
   product_icon1,
   app_bar_list1,
+  download,
+  expand_more,
+  call_made,
+  call_received,
 };
