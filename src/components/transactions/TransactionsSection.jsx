@@ -19,7 +19,7 @@ const TransactionsSection = () => {
     return formattedDate;
   };
   return (
-    <div className="transactions">
+    <div className="transactions" data-testid="transactions-section">
       <div className="transactions__header">
         <div className="">
           <p className="text-2xl text-[#131316] font-bold">24 Transactions</p>

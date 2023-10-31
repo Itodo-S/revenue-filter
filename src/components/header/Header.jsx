@@ -62,7 +62,7 @@ const Header = () => {
 
   return (
     <>
-      <header className="header">
+      <header className="header" data-testid="header">
         <img className="ml-6 w-9 h-9" src={logo} alt="MAINSTACK LOGO" />
 
         <div className="header__nav">

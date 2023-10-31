@@ -8,7 +8,7 @@ const WalletSection = () => {
 
   console.log(wallet);
   return (
-    <section className="wallet-section">
+    <section className="wallet-section" data-testid="wallet-section">
       <div className="wallet-section__chart">
         <div className="wallet-section__balance">
           <div className="">
