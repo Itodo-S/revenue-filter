@@ -4,7 +4,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
 // STYLES
-import "./index.css";
+import "./index.scss";
 import "./styles/global.scss";
 import { MainStackProvider } from "./context/MainStackContext";
 

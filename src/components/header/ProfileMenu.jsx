@@ -26,7 +26,9 @@ const ProfileMenu = () => {
   return (
     <div className="absolute w-[340px] shadow-lg top-24 right-9 bg-[#fff] p-3 rounded-2xl">
       <div className="flex gap-4 items-center">
-        <div className="name-short">{userInitials}</div>
+        <div className="rounded-full w-8 h-8 flex items-center justify-center text-[#FFFFFF] font-semibold text-sm bg-[#3f454c]">
+          {userInitials}
+        </div>
         <div className="flex flex-col gap-1">
           <p className="font-bold text-[#131316]">
             {user?.user?.first_name + " " + user?.user?.last_name}
