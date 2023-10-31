@@ -1,9 +1,5 @@
 import React from "react";
-import {
-  call_made,
-  download,
-  expand_more,
-} from "../../assets/icons";
+import { call_made, download, expand_more } from "../../assets/icons";
 import { useMainStack } from "../../context/MainStackContext";
 
 const TransactionsSection = () => {
